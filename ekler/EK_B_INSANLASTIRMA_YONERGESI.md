@@ -18,6 +18,7 @@ aynı protokolle yeniden üretilmiştir.
 | Geçiş sayısı | 1 (bant ihlalinde aynı protokolle yeniden üretim) |
 | Protokol sürümü | `bote-academic v5` |
 | Protokol kaynağı | https://github.com/cihanemres/bote-academic (`SKILL.md`, `references/ai-signatures.md`, `bote-academic-v5.zip`) |
+| Alt bileşen | `humanizer` v2.8.2, commit `1b48564` (29.06.2026) — https://github.com/blader/humanizer; tam metin **Ek B-1** |
 
 ## B.2. Protokolün bileşenleri
 
@@ -37,10 +38,15 @@ Buna göre uygulanan üç bileşen:
    katman. Tam metin: depodaki `SKILL.md`.
 2. **`references/ai-signatures.md`** — temizlenecek YZ imzalarının işlemsel
    listesi. Tam metin aşağıda B.3'te verilmiştir.
-3. **`humanizer` skill'i** — genel amaçlı yeniden-yazım katmanı.
-   ⟦DOLDUR: bu skill'in tam tanımı depoda ve yerel `~/.claude/skills` dizininde
-   bulunamamıştır. Skill tanımını (SKILL.md) buraya ekleyin; erişilemiyorsa
-   bu durum ana metinde sınırlılık olarak belirtilmelidir.⟧
+3. **`humanizer` skill'i** — genel amaçlı yeniden-yazım katmanı; üçüncü
+   tarafça geliştirilmiş, kamuya açık ve MIT lisanslı bir bileşendir
+   (https://github.com/blader/humanizer). Wikipedia'nın "Signs of AI writing"
+   sayfasındaki (WikiProject AI Cleanup) 35 örüntüyü işlemsel kurallara
+   dönüştürür ve metni bu kurallara göre yeniden yazar; yeniden yazımda
+   kapsam korunur (kaynak metin kaç paragrafsa çıktı da o kadardır),
+   olgusal içerik ve anlam değiştirilmez. Sürüm 2.8.2, commit `1b48564`
+   (29.06.2026). **Tam metin Ek B-1'de** birebir verilmiştir; sürüm
+   sabitlemesinin gerekçesi ve belirsizlik aralığı da orada tartışılmıştır.
 4. **Çalışmaya özgü uzunluk kısıtı** — yukarıdaki üç bileşene ek olarak, bu
    çalışma için çıktının kaynak G2 eşinin ±%10 sözcük bandında kalması
    koşulu dayatılmıştır. ⟦DOLDUR: bu kısıtı iletirken kullandığınız

@@ -50,7 +50,8 @@ veri/
   G1_KAYNAKCA_DOI.csv      G1'in 100 kaydı: dergi, başlık, DOI (gövde yok)
 
 sonuclar/                  Analiz çıktıları (JSON özetler + konsol raporları)
-ekler/                     Ek A (üretim istemleri), Ek B (insanlaştırma protokolü)
+ekler/                     Ek A (üretim istemleri), Ek B (insanlaştırma
+                           protokolü), Ek B-1 (`humanizer` skill tam metni)
 ```
 
 ## G1 metinleri neden burada değil?
@@ -115,3 +116,8 @@ G1 kaynakça listesindeki künye bilgileri ilgili yayıncılara aittir.
 https://github.com/cihanemres/bote-academic — o depo çalışmadan bağımsız
 gelişebileceğinden, bu çalışma için bağlayıcı olan metin `ekler/` altındaki
 dondurulmuş v5 sürümüdür.
+
+Protokolün alt bileşeni olan `humanizer` skill'i üçüncü tarafa aittir
+(https://github.com/blader/humanizer, MIT). `ekler/EK_B1_HUMANIZER_SKILL.md`,
+üretim tarihinde geçerli olan sürümün (v2.8.2, commit `1b48564`) birebir
+kopyasıdır ve yazarına atıfla MIT lisansı altında çoğaltılmıştır.
