@@ -49,8 +49,13 @@ Buna göre uygulanan üç bileşen:
    sabitlemesinin gerekçesi ve belirsizlik aralığı da orada tartışılmıştır.
 4. **Çalışmaya özgü uzunluk kısıtı** — yukarıdaki üç bileşene ek olarak, bu
    çalışma için çıktının kaynak G2 eşinin ±%10 sözcük bandında kalması
-   koşulu dayatılmıştır. ⟦DOLDUR: bu kısıtı iletirken kullandığınız
-   ifadeyi buraya yazın.⟧
+   koşulu dayatılmıştır. Kısıt, korpus dosyasının `Islem_Notu` alanında
+   100 kaydın tamamında şu biçimde kayıtlıdır: *"uzunluk-eşlemeli: kaynak
+   G2'nin ±%10 kelime bandında yeniden insanlaştırma"*. Kısıtı modele
+   ileten kullanıcı iletisinin birebir metni, üretim anında ayrıca
+   kaydedilmemiştir; bu nedenle burada verilen ifade, yürütülen işlemin
+   eşzamanlı kaydıdır, gönderilen iletinin tıpkıbasımı değildir. Kısıtın
+   fiilen işlediği çıktı düzeyinde doğrulanmıştır (B.5).
 
 ## B.3. `references/ai-signatures.md` (tam metin)
 
@@ -154,11 +159,38 @@ dosyasındaki `Islem_Notu` alanının birleşiminden gelmektedir:
 4. **Kısaltma yasağı** — dönüşüm, kısaltma yoluyla değil yeniden ifade
    yoluyla yapılır; kaynak içerik tam olarak taşınır.
 
-`Islem_Notu` alanı iki biçimde kayıtlıdır (her biri 50 metin): 4. maddenin
-açıkça yazıldığı sürüm ve yazılmadığı sürüm. Her iki alt kümede de aynı
-protokol kullanılmıştır; ⟦DOLDUR: iki not biçimi arasında uygulama farkı varsa
-burada belirtin, yoksa "yalnızca not metni farklıdır, uygulama aynıdır"
-yazın⟧.
+`Islem_Notu` alanı iki biçimde kayıtlıdır ve bu iki biçim **dil alt kümeleriyle
+tam olarak örtüşmektedir**: 4. madde (kısaltma yasağı) Türkçe kayıtların
+tamamında (`G3_01`–`G3_50`, 50/50) açıkça yazılıdır, İngilizce kayıtların
+hiçbirinde (`G3_51`–`G3_100`, 0/50) yazılı değildir. Diğer üç kısıt her iki
+biçimde de aynıdır.
+
+Bu ayrımın **uygulamaya** yansıyıp yansımadığı, uzunluk oranı (G3/G2 sözcük)
+üzerinden sınanmıştır. Türkçe alt kümede ortalama oran 0,9462 (SS = 0,0300),
+İngilizce alt kümede 0,9298 (SS = 0,0232); fark 0,0164'tür (Welch
+$t = 3{,}06$, $p = .003$; Cohen $d = 0{,}61$). Fark yönü kısıtla tutarlıdır
+(kısaltma yasağının yazılı olduğu alt küme daha az kısalmıştır), ancak üç
+nedenle bu farka nedensel bir yorum yüklenmemektedir:
+
+1. **Etki büyüklüğü uygulamada önemsizdir.** İki alt küme ±%5'lik eşdeğerlik
+   bandı içindedir (TOST, $p < .001$); 1,6 puanlık fark, ±%10'luk protokol
+   bandının çok altındadır. Bant ihlali sayısı da iki alt kümede benzerdir
+   (Türkçe 3, İngilizce 2; toplam 5 — §3.2'de raporlanan sayı).
+2. **Not biçimi dille tam olarak karışıktır (confounded).** Kısaltma yasağının
+   yazılı olup olmaması ile metnin dili birebir örtüştüğünden, gözlenen farkın
+   not metninden mi yoksa Türkçe ile İngilizcenin yeniden yazımda farklı
+   sözcük ekonomisi göstermesinden mi kaynaklandığı bu tasarımla
+   ayrıştırılamaz. Türkçenin sondan eklemeli yapısı, yeniden ifade sırasında
+   sözcük sayısını İngilizceden farklı biçimde etkilemektedir.
+3. **Kısıt zaten protokolün kendisinde tanımlıdır.** İçerik sadakati ve
+   kısaltma yasağı, `bote-academic v5` skill tanımının değişmez kurallarındandır
+   (B.2 madde 1); `Islem_Notu` alanı yürütülen işlemin kaydıdır, modele
+   verilen yönergenin kendisi değildir. Dolayısıyla not metnindeki farklılık,
+   uygulanan yönergenin farklı olduğu anlamına gelmemektedir.
+
+Uzunluk oranı, tüm analizlerde zaten kovaryat olarak saklanmakta ve dil
+kırılımında raporlanmaktadır (§3.2 ve Ek D); bu nedenle söz konusu 1,6 puanlık
+fark bulguların yorumunu etkilememektedir.
 
 **Sürüm etiketi düzeltmesi.** Korpus dosyasının `Islem_Notu` alanı, 100 kaydın
 tamamında protokolü "v2" olarak etiketliyordu; uygulanan sürüm ise

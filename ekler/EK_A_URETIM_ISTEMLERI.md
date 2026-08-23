@@ -6,9 +6,13 @@ G2 grubundaki 100 metnin tamamı, aşağıdaki **iki sabit şablondan** biriyle
 Şablon dışında hiçbir sistem istemi, örnek (few-shot) veya takip iletisi
 kullanılmamış; her metin tek bir çağrıda üretilmiştir.
 
-Şablonların korpus dosyasındaki 100 kayıtla birebir uyumu programatik olarak
-doğrulanmıştır: başlık alanı çıkarıldığında yalnızca iki ayrı şablon metni
-kalmaktadır (TUR için 50 kayıt, ENG için 50 kayıt).
+Şablonlar yeniden kurgulanmamış, **korpus dosyasında kayıtlıdır**:
+`G2_YZ_Korpus` sayfasının `SABİT_PROMPT (kopyala-yapıştır)` sütunu, 100 üretimin
+her biri için modele fiilen gönderilen istem metnini saklamaktadır. Şablonların
+bu 100 kayıtla birebir uyumu programatik olarak doğrulanmıştır: başlık alanı
+çıkarıldığında geriye yalnızca iki ayrı gövde metni kalmaktadır — TUR için
+249 karakterlik gövde (50 kayıt), ENG için 281 karakterlik gövde (50 kayıt).
+Her iki gövdede de model dağılımı dengelidir (her biri 25 Claude + 25 Gemini).
 
 ---
 
@@ -63,3 +67,12 @@ doğrudan kullanıcı iletisi olarak verilmiştir.
 Girdi olarak kullanılan 100 başlığın tamamı, eşleştikleri G1 metinlerinin DOI
 bilgileriyle birlikte yayımlanan veri setinde (`G2_YZ_Korpus` sayfası,
 `Kaynak_Başlık` sütunu) verilmektedir.
+
+**Küçük bir tutarsızlık kaydı.** İstem sütunundaki başlıklar ile
+`Kaynak_Başlık` sütunu 100 kaydın 99'unda karakteri karakterine aynıdır.
+Tek istisna `G2_YZ_25`'tir: `Kaynak_Başlık` hücresinde bir boşluk eksiktir
+("…FENOMENOLOJİK BİRARAŞTIRMA"), modele gönderilen istemde ise başlık
+boşluklu hâliyle yer almıştır. Fark tek bir boşluk karakteridir, üretimi
+etkileyecek nitelikte değildir ve şeffaflık gereği burada kaydedilmiştir.
+İlgili başlık, özgün yayında da bazı sözcük araları kaybolmuş biçimde
+aktarılmış olup istem metni bu hâliyle kullanılmıştır.
