@@ -1,0 +1,243 @@
+﻿
+==================================================================================
+1. SINYAL TESPIT TEORISI — d' (duyarlilik) ve c (karar olcutu), tau = %50
+   Kurgu A: sinyal = G2 (saf YZ)      | gurultu = G1 (insan)
+   Kurgu B: sinyal = G2 + G3 (tum YZ) | gurultu = G1 (insan)
+   * = log-lineer duzeltme uygulandi (ham oran 0 veya 1)
+==================================================================================
+
+arac             dil  kurgu    H_ham   F_ham   d_prime         c      c/d
+GPTZero          TUM  A(G2)    1.0000  0.0000   5.1585*    0.0000   0.0000
+GPTZero          TUM  B(G2G3)  0.9850  0.0000   4.6896*    0.2344   0.0500
+GPTZero          TUR  A(G2)    1.0000  0.0000   4.6675*   -0.0000  -0.0000
+GPTZero          TUR  B(G2G3)  0.9700  0.0000   4.1502*    0.2587   0.0623
+GPTZero          ENG  A(G2)    1.0000  0.0000   4.6675*   -0.0000  -0.0000
+GPTZero          ENG  B(G2G3)  1.0000  0.0000   4.9130*   -0.1227  -0.0250
+
+ZeroGPT          TUM  A(G2)    0.9800  0.4500   2.0886    -0.9199  -0.4404
+ZeroGPT          TUM  B(G2G3)  0.8550  0.4500   1.1748    -0.4630  -0.3941
+ZeroGPT          TUR  A(G2)    1.0000  0.9000   1.0957*   -1.7859  -1.6300
+ZeroGPT          TUR  B(G2G3)  0.9500  0.9000   0.3650    -1.4206  -3.8917
+ZeroGPT          ENG  A(G2)    0.9600  0.0000   3.9882*    0.3397   0.0852
+ZeroGPT          ENG  B(G2G3)  0.7600  0.0000   3.0318*    0.8179   0.2698
+
+Copyleaks        TUM  A(G2)    1.0000  0.1304   3.3910*   -0.6075  -0.1792
+Copyleaks        TUM  B(G2G3)  0.8974  0.1304   2.3274    -0.0757  -0.0325
+Copyleaks        TUR  A(G2)    1.0000  0.2000   2.9487*   -0.6668  -0.2261
+Copyleaks        TUR  B(G2G3)  0.9130  0.2000   2.1137    -0.2493  -0.1180
+Copyleaks        ENG  A(G2)    1.0000  0.0000   3.7790*   -0.0000  -0.0000
+Copyleaks        ENG  B(G2G3)  0.8750  0.0000   2.9863*    0.3964   0.1327
+
+Sapling          TUM  A(G2)    0.9300  0.5800   1.2449    -0.8223  -0.6605
+Sapling          TUM  B(G2G3)  0.9600  0.5800   1.5249    -0.9623  -0.6311
+Sapling          TUR  A(G2)    0.8600  0.7200   0.4791    -0.8096  -1.6900
+Sapling          TUR  B(G2G3)  0.9300  0.7200   0.8747    -1.0074  -1.1517
+Sapling          ENG  A(G2)    1.0000  0.4400   2.4818*   -1.0929  -0.4404
+Sapling          ENG  B(G2G3)  0.9900  0.4400   2.3220    -1.0130  -0.4363
+
+Originality_ai   TUM  A(G2)    1.0000  0.1000   3.8386*   -0.6600  -0.1719
+Originality_ai   TUM  B(G2G3)  0.9950  0.1000   3.6935    -0.5874  -0.1590
+Originality_ai   TUR  A(G2)    1.0000  0.1000   3.5718*   -0.5478  -0.1534
+Originality_ai   TUR  B(G2G3)  0.9900  0.1000   3.4121    -0.4680  -0.1372
+Originality_ai   ENG  A(G2)    1.0000  0.1000   3.5718*   -0.5478  -0.1534
+Originality_ai   ENG  B(G2G3)  1.0000  0.1000   3.8173*   -0.6706  -0.1757
+
+Pangram          TUM  A(G2)    1.0000  0.0000   5.1585*    0.0000   0.0000
+Pangram          TUM  B(G2G3)  1.0000  0.0000   5.3879*   -0.1147  -0.0213
+Pangram          TUR  A(G2)    1.0000  0.0000   4.6675*   -0.0000  -0.0000
+Pangram          TUR  B(G2G3)  1.0000  0.0000   4.9130*   -0.1227  -0.0250
+Pangram          ENG  A(G2)    1.0000  0.0000   4.6675*   -0.0000  -0.0000
+Pangram          ENG  B(G2G3)  1.0000  0.0000   4.9130*   -0.1227  -0.0250
+
+
+==================================================================================
+2. AUC — esikten bagimsiz ayirt etme gucu (Mann-Whitney U)
+==================================================================================
+arac             dil  kurgu     n_poz  n_neg      AUC              p
+GPTZero          TUM  A(G2)       100    100   1.0000      7.896e-36
+GPTZero          TUM  B(G2G3)     200    100   1.0000      1.683e-47
+GPTZero          TUR  A(G2)        50     50   1.0000      6.190e-18
+GPTZero          TUR  B(G2G3)     100     50   1.0000      1.979e-23
+GPTZero          ENG  A(G2)        50     50   1.0000      1.554e-22
+GPTZero          ENG  B(G2G3)     100     50   1.0000      1.905e-33
+
+ZeroGPT          TUM  A(G2)       100    100   0.8347      1.269e-19
+ZeroGPT          TUM  B(G2G3)     200    100   0.7221      6.787e-11
+ZeroGPT          TUR  A(G2)        50     50   0.7152      1.098e-06
+ZeroGPT          TUR  B(G2G3)     100     50   0.5296      5.139e-01
+ZeroGPT          ENG  A(G2)        50     50   1.0000      2.571e-20
+ZeroGPT          ENG  B(G2G3)     100     50   0.9825      7.052e-23
+
+Copyleaks        TUM  A(G2)        46     46   0.9348      6.164e-17
+Copyleaks        TUM  B(G2G3)      78     46   0.8835      3.365e-17
+Copyleaks        TUR  A(G2)        30     30   0.9000      3.778e-10
+Copyleaks        TUR  B(G2G3)      46     30   0.8565      4.080e-10
+Copyleaks        ENG  A(G2)        16     16   1.0000      2.923e-08
+Copyleaks        ENG  B(G2G3)      32     16   0.9375      1.046e-08
+
+Sapling          TUM  A(G2)       100    100   0.7697      4.385e-11
+Sapling          TUM  B(G2G3)     200    100   0.8095      2.141e-18
+Sapling          TUR  A(G2)        50     50   0.6180      4.233e-02
+Sapling          TUR  B(G2G3)     100     50   0.6774      4.088e-04
+Sapling          ENG  A(G2)        50     50   0.8934      1.131e-11
+Sapling          ENG  B(G2G3)     100     50   0.9253      1.218e-17
+
+Originality_ai   TUM  A(G2)       100    100   0.9871      3.790e-33
+Originality_ai   TUM  B(G2G3)     200    100   0.9828      4.020e-43
+Originality_ai   TUR  A(G2)        50     50   0.9836      8.002e-17
+Originality_ai   TUR  B(G2G3)     100     50   0.9688      9.368e-21
+Originality_ai   ENG  A(G2)        50     50   1.0000      3.295e-20
+Originality_ai   ENG  B(G2G3)     100     50   0.9996      2.033e-27
+
+Pangram          TUM  A(G2)       100    100   1.0000      3.522e-45
+Pangram          TUM  B(G2G3)     200    100   1.0000      5.523e-67
+Pangram          TUR  A(G2)        50     50   1.0000      2.628e-23
+Pangram          TUR  B(G2G3)     100     50   1.0000      2.955e-34
+Pangram          ENG  A(G2)        50     50   1.0000      2.628e-23
+Pangram          ENG  B(G2G3)     100     50   1.0000      2.955e-34
+
+
+==================================================================================
+3. KARAR ESIGI DUYARLILIK ANALIZI — G1'de yanlis alarm orani (FPR)
+   Soru: %50 esigi araclari haksiz cezalandiriyor mu?
+==================================================================================
+arac             dil  t= 10 t= 20 t= 30 t= 40 t= 50 t= 60 t= 70 t= 80 t= 90
+GPTZero          TUM   0.02  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=100)
+GPTZero          TUR   0.02  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=50)
+GPTZero          ENG   0.02  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=50)
+
+ZeroGPT          TUM   0.54  0.49  0.49  0.48  0.45  0.42  0.39  0.32  0.30   (n=100)
+ZeroGPT          TUR   0.98  0.98  0.98  0.96  0.90  0.84  0.78  0.64  0.60   (n=50)
+ZeroGPT          ENG   0.10  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=50)
+
+Copyleaks        TUM   0.13  0.13  0.13  0.13  0.13  0.13  0.13  0.13  0.13   (n=46)
+Copyleaks        TUR   0.20  0.20  0.20  0.20  0.20  0.20  0.20  0.20  0.20   (n=30)
+Copyleaks        ENG   0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=16)
+
+Sapling          TUM   0.73  0.69  0.66  0.62  0.58  0.55  0.55  0.52  0.47   (n=100)
+Sapling          TUR   0.92  0.88  0.82  0.80  0.72  0.68  0.68  0.64  0.56   (n=50)
+Sapling          ENG   0.54  0.50  0.50  0.44  0.44  0.42  0.42  0.40  0.38   (n=50)
+
+Originality_ai   TUM   0.33  0.23  0.19  0.13  0.10  0.08  0.07  0.04  0.04   (n=100)
+Originality_ai   TUR   0.56  0.36  0.28  0.16  0.10  0.10  0.10  0.04  0.04   (n=50)
+Originality_ai   ENG   0.10  0.10  0.10  0.10  0.10  0.06  0.04  0.04  0.04   (n=50)
+
+Pangram          TUM   0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=100)
+Pangram          TUR   0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=50)
+Pangram          ENG   0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00  0.00   (n=50)
+
+
+   Ayni tabloda DUYARLILIK (recall, G2+G3 uzerinden):
+arac             dil  t= 10 t= 20 t= 30 t= 40 t= 50 t= 60 t= 70 t= 80 t= 90
+GPTZero          TUM   1.00  0.99  0.99  0.99  0.98  0.98  0.97  0.97  0.95   (n=200)
+GPTZero          TUR   1.00  0.99  0.99  0.98  0.97  0.96  0.95  0.95  0.90   (n=100)
+GPTZero          ENG   1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00   (n=100)
+
+ZeroGPT          TUM   0.97  0.96  0.94  0.91  0.85  0.77  0.69  0.60  0.54   (n=200)
+ZeroGPT          TUR   0.98  0.97  0.97  0.96  0.95  0.85  0.82  0.71  0.61   (n=100)
+ZeroGPT          ENG   0.97  0.96  0.90  0.85  0.76  0.68  0.57  0.49  0.47   (n=100)
+
+Copyleaks        TUM   0.90  0.90  0.90  0.90  0.90  0.90  0.90  0.90  0.90   (n=78)
+Copyleaks        TUR   0.91  0.91  0.91  0.91  0.91  0.91  0.91  0.91  0.91   (n=46)
+Copyleaks        ENG   0.88  0.88  0.88  0.88  0.88  0.88  0.88  0.88  0.88   (n=32)
+
+Sapling          TUM   0.98  0.97  0.96  0.96  0.96  0.96  0.96  0.95  0.93   (n=200)
+Sapling          TUR   0.97  0.96  0.94  0.93  0.93  0.93  0.93  0.92  0.87   (n=100)
+Sapling          ENG   0.99  0.99  0.99  0.99  0.99  0.99  0.99  0.99  0.99   (n=100)
+
+Originality_ai   TUM   1.00  1.00  1.00  0.99  0.99  0.98  0.96  0.94  0.86   (n=200)
+Originality_ai   TUR   1.00  1.00  1.00  0.99  0.99  0.96  0.93  0.88  0.73   (n=100)
+Originality_ai   ENG   1.00  1.00  1.00  1.00  1.00  1.00  1.00  0.99  0.99   (n=100)
+
+Pangram          TUM   1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00   (n=200)
+Pangram          TUR   1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00   (n=100)
+Pangram          ENG   1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00  1.00   (n=100)
+
+
+==================================================================================
+4. SONUC KARARLILIGI — G1'de TUR vs ENG yanlis alarm farki her esikte
+   (Fisher's Exact, iki yonlu). Dil etkisi bulgusu esige bagimli mi?
+==================================================================================
+
+  GPTZero  (TUR n=50, ENG n=50)
+    tau= 10: TUR   1/ 50 vs ENG   1/ 50   Fisher p = 1.000000   -
+    tau= 20: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 30: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 40: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 50: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 60: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 70: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 80: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 90: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+
+  ZeroGPT  (TUR n=50, ENG n=50)
+    tau= 10: TUR  49/ 50 vs ENG   5/ 50   Fisher p = 2.890e-21 (p < .001)   ANLAMLI
+    tau= 20: TUR  49/ 50 vs ENG   0/ 50   Fisher p = 1.011e-27 (p < .001)   ANLAMLI
+    tau= 30: TUR  49/ 50 vs ENG   0/ 50   Fisher p = 1.011e-27 (p < .001)   ANLAMLI
+    tau= 40: TUR  48/ 50 vs ENG   0/ 50   Fisher p = 2.629e-26 (p < .001)   ANLAMLI
+    tau= 50: TUR  45/ 50 vs ENG   0/ 50   Fisher p = 6.896e-23 (p < .001)   ANLAMLI
+    tau= 60: TUR  42/ 50 vs ENG   0/ 50   Fisher p = 3.800e-20 (p < .001)   ANLAMLI
+    tau= 70: TUR  39/ 50 vs ENG   0/ 50   Fisher p = 8.288e-18 (p < .001)   ANLAMLI
+    tau= 80: TUR  32/ 50 vs ENG   0/ 50   Fisher p = 2.525e-13 (p < .001)   ANLAMLI
+    tau= 90: TUR  30/ 50 vs ENG   0/ 50   Fisher p = 3.209e-12 (p < .001)   ANLAMLI
+
+  Copyleaks  (TUR n=30, ENG n=16)
+    tau= 10: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 20: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 30: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 40: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 50: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 60: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 70: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 80: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+    tau= 90: TUR   6/ 30 vs ENG   0/ 16   Fisher p = 0.078236   -
+
+  Sapling  (TUR n=50, ENG n=50)
+    tau= 10: TUR  46/ 50 vs ENG  27/ 50   Fisher p = 2.861e-05 (p < .001)   ANLAMLI
+    tau= 20: TUR  44/ 50 vs ENG  25/ 50   Fisher p = 6.914e-05 (p < .001)   ANLAMLI
+    tau= 30: TUR  41/ 50 vs ENG  25/ 50   Fisher p = 0.001358   ANLAMLI
+    tau= 40: TUR  40/ 50 vs ENG  22/ 50   Fisher p = 3.912e-04 (p < .001)   ANLAMLI
+    tau= 50: TUR  36/ 50 vs ENG  22/ 50   Fisher p = 0.008082   ANLAMLI
+    tau= 60: TUR  34/ 50 vs ENG  21/ 50   Fisher p = 0.015425   ANLAMLI
+    tau= 70: TUR  34/ 50 vs ENG  21/ 50   Fisher p = 0.015425   ANLAMLI
+    tau= 80: TUR  32/ 50 vs ENG  20/ 50   Fisher p = 0.027184   ANLAMLI
+    tau= 90: TUR  28/ 50 vs ENG  19/ 50   Fisher p = 0.108508   -
+
+  Originality_ai  (TUR n=50, ENG n=50)
+    tau= 10: TUR  28/ 50 vs ENG   5/ 50   Fisher p = 1.388e-06 (p < .001)   ANLAMLI
+    tau= 20: TUR  18/ 50 vs ENG   5/ 50   Fisher p = 0.003721   ANLAMLI
+    tau= 30: TUR  14/ 50 vs ENG   5/ 50   Fisher p = 0.039518   ANLAMLI
+    tau= 40: TUR   8/ 50 vs ENG   5/ 50   Fisher p = 0.553555   -
+    tau= 50: TUR   5/ 50 vs ENG   5/ 50   Fisher p = 1.000000   -
+    tau= 60: TUR   5/ 50 vs ENG   3/ 50   Fisher p = 0.714984   -
+    tau= 70: TUR   5/ 50 vs ENG   2/ 50   Fisher p = 0.436032   -
+    tau= 80: TUR   2/ 50 vs ENG   2/ 50   Fisher p = 1.000000   -
+    tau= 90: TUR   2/ 50 vs ENG   2/ 50   Fisher p = 1.000000   -
+
+  Pangram  (TUR n=50, ENG n=50)
+    tau= 10: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 20: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 30: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 40: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 50: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 60: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 70: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 80: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+    tau= 90: TUR   0/ 50 vs ENG   0/ 50   Fisher p = 1.000000   -
+
+==================================================================================
+5. COCHRAN Q HER ESIKTE — 5 arac arasindaki yanlis alarm farki (G1)
+==================================================================================
+  Tam kayitli metin sayisi: 100
+    tau= 10: Q(4, N=100) =  190.1953, p = 4.812e-40 (p < .001)        GPTZ=0.02 Zero=0.54 Sapl=0.73 Orig=0.33 Pang=0.00
+    tau= 20: Q(4, N=100) =  182.0980, p = 2.642e-38 (p < .001)        GPTZ=0.00 Zero=0.49 Sapl=0.69 Orig=0.23 Pang=0.00
+    tau= 30: Q(4, N=100) =  174.5941, p = 1.080e-36 (p < .001)        GPTZ=0.00 Zero=0.49 Sapl=0.66 Orig=0.19 Pang=0.00
+    tau= 40: Q(4, N=100) =  171.4167, p = 5.193e-36 (p < .001)        GPTZ=0.00 Zero=0.48 Sapl=0.62 Orig=0.13 Pang=0.00
+    tau= 50: Q(4, N=100) =  159.5217, p = 1.851e-33 (p < .001)        GPTZ=0.00 Zero=0.45 Sapl=0.58 Orig=0.10 Pang=0.00
+    tau= 60: Q(4, N=100) =  153.0636, p = 4.489e-32 (p < .001)        GPTZ=0.00 Zero=0.42 Sapl=0.55 Orig=0.08 Pang=0.00
+    tau= 70: Q(4, N=100) =  153.9036, p = 2.965e-32 (p < .001)        GPTZ=0.00 Zero=0.39 Sapl=0.55 Orig=0.07 Pang=0.00
+    tau= 80: Q(4, N=100) =  144.4211, p = 3.191e-30 (p < .001)        GPTZ=0.00 Zero=0.32 Sapl=0.52 Orig=0.04 Pang=0.00
+    tau= 90: Q(4, N=100) =  126.7692, p = 1.911e-26 (p < .001)        GPTZ=0.00 Zero=0.30 Sapl=0.47 Orig=0.04 Pang=0.00
+
+
+JSON ozet yazildi: C:\Users\cihanemres\Desktop\icits\sonuclar\sdt_esik_istatistik.json

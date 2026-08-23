@@ -1,0 +1,568 @@
+{
+  "G2_YZ|GPTZero|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      50,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|GPTZero|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|GPTZero|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|ZeroGPT|TUM": {
+    "claude": [
+      48,
+      50
+    ],
+    "gemini": [
+      50,
+      50
+    ],
+    "oran_claude": 0.96,
+    "oran_gemini": 1.0,
+    "fark": -0.040000000000000036,
+    "p_fisher": 0.4949494949494949
+  },
+  "G2_YZ|ZeroGPT|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|ZeroGPT|ENG": {
+    "claude": [
+      23,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 0.92,
+    "oran_gemini": 1.0,
+    "fark": -0.07999999999999996,
+    "p_fisher": 0.4897959183673469
+  },
+  "G2_YZ|Copyleaks|TUM": {
+    "claude": [
+      31,
+      31
+    ],
+    "gemini": [
+      15,
+      15
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Copyleaks|TUR": {
+    "claude": [
+      15,
+      15
+    ],
+    "gemini": [
+      15,
+      15
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Sapling|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      43,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.86,
+    "fark": 0.14,
+    "p_fisher": 0.012479652740097668
+  },
+  "G2_YZ|Sapling|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      18,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.72,
+    "fark": 0.28,
+    "p_fisher": 0.009625126646403241
+  },
+  "G2_YZ|Sapling|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Originality_ai|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      50,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Originality_ai|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Originality_ai|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Pangram|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      50,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Pangram|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G2_YZ|Pangram|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|GPTZero|TUM": {
+    "claude": [
+      48,
+      50
+    ],
+    "gemini": [
+      49,
+      50
+    ],
+    "oran_claude": 0.96,
+    "oran_gemini": 0.98,
+    "fark": -0.020000000000000018,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|GPTZero|TUR": {
+    "claude": [
+      23,
+      25
+    ],
+    "gemini": [
+      24,
+      25
+    ],
+    "oran_claude": 0.92,
+    "oran_gemini": 0.96,
+    "fark": -0.039999999999999925,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|GPTZero|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|ZeroGPT|TUM": {
+    "claude": [
+      37,
+      50
+    ],
+    "gemini": [
+      36,
+      50
+    ],
+    "oran_claude": 0.74,
+    "oran_gemini": 0.72,
+    "fark": 0.020000000000000018,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|ZeroGPT|TUR": {
+    "claude": [
+      23,
+      25
+    ],
+    "gemini": [
+      22,
+      25
+    ],
+    "oran_claude": 0.92,
+    "oran_gemini": 0.88,
+    "fark": 0.040000000000000036,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|ZeroGPT|ENG": {
+    "claude": [
+      14,
+      25
+    ],
+    "gemini": [
+      14,
+      25
+    ],
+    "oran_claude": 0.56,
+    "oran_gemini": 0.56,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Copyleaks|TUM": {
+    "claude": [
+      23,
+      31
+    ],
+    "gemini": [
+      1,
+      1
+    ],
+    "oran_claude": 0.7419354838709677,
+    "oran_gemini": 1.0,
+    "fark": -0.25806451612903225,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Copyleaks|TUR": {
+    "claude": [
+      11,
+      15
+    ],
+    "gemini": [
+      1,
+      1
+    ],
+    "oran_claude": 0.7333333333333333,
+    "oran_gemini": 1.0,
+    "fark": -0.2666666666666667,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Sapling|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      49,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.98,
+    "fark": 0.020000000000000018,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Sapling|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Sapling|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      24,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.96,
+    "fark": 0.040000000000000036,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Originality_ai|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      49,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.98,
+    "fark": 0.020000000000000018,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Originality_ai|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      24,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 0.96,
+    "fark": 0.040000000000000036,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Originality_ai|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Pangram|TUM": {
+    "claude": [
+      50,
+      50
+    ],
+    "gemini": [
+      50,
+      50
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Pangram|TUR": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "G3_Insanlastirilmis|Pangram|ENG": {
+    "claude": [
+      25,
+      25
+    ],
+    "gemini": [
+      25,
+      25
+    ],
+    "oran_claude": 1.0,
+    "oran_gemini": 1.0,
+    "fark": 0.0,
+    "p_fisher": 1.0
+  },
+  "eslesmis_model": {
+    "GPTZero|Claude": {
+      "n": 50,
+      "b": 2,
+      "c": 0,
+      "p_exact": 0.5,
+      "recall_G2": 1.0,
+      "recall_G3": 0.96
+    },
+    "GPTZero|Gemini": {
+      "n": 50,
+      "b": 1,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 0.98
+    },
+    "ZeroGPT|Claude": {
+      "n": 50,
+      "b": 11,
+      "c": 0,
+      "p_exact": 0.0009765625,
+      "recall_G2": 0.96,
+      "recall_G3": 0.74
+    },
+    "ZeroGPT|Gemini": {
+      "n": 50,
+      "b": 14,
+      "c": 0,
+      "p_exact": 0.0001220703125,
+      "recall_G2": 1.0,
+      "recall_G3": 0.72
+    },
+    "Copyleaks|Claude": {
+      "n": 31,
+      "b": 8,
+      "c": 0,
+      "p_exact": 0.0078125,
+      "recall_G2": 1.0,
+      "recall_G3": 0.7419354838709677
+    },
+    "Sapling|Claude": {
+      "n": 50,
+      "b": 0,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 1.0
+    },
+    "Sapling|Gemini": {
+      "n": 50,
+      "b": 1,
+      "c": 7,
+      "p_exact": 0.0703125,
+      "recall_G2": 0.86,
+      "recall_G3": 0.98
+    },
+    "Originality_ai|Claude": {
+      "n": 50,
+      "b": 0,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 1.0
+    },
+    "Originality_ai|Gemini": {
+      "n": 50,
+      "b": 1,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 0.98
+    },
+    "Pangram|Claude": {
+      "n": 50,
+      "b": 0,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 1.0
+    },
+    "Pangram|Gemini": {
+      "n": 50,
+      "b": 0,
+      "c": 0,
+      "p_exact": 1.0,
+      "recall_G2": 1.0,
+      "recall_G3": 1.0
+    }
+  }
+}

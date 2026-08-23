@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Originality.ai v2 — dile göre model yönlendirmeli ölçüm
+TR metinler -> multilanguage model | EN metinler -> Lite model
+(Originality.ai'nin resmi önerisi, 16.07.2026 e-postası)
+
+KULLANIM: API anahtarını gir, v9 dosyasıyla aynı klasörde çalıştır.
+NOT: MODEL parametre adlarını docs.originality.ai/api-v2-0-new sayfasından
+     TEYİT ET — sandbox'tan doğrulayamadım; ilk çalıştırmada 1 metinle test et.
+"""
+import os, time, requests
+from openpyxl import load_workbook
+from dotenv import load_dotenv
+
+# API anahtari .env'den okunur (koda gomulmez). Bu betik yzdetect/ altinda
+# oldugu icin once bir ust klasordeki proje .env'ini, sonra calisma dizinini dener.
+_here = os.path.dirname(os.path.abspath(__file__))
+load_dotenv(os.path.join(_here, "..", ".env"))
+load_dotenv()
+API_KEY = os.getenv("ORIGINALITY_API_KEY")
+if not API_KEY:
+    raise SystemExit("ORIGINALITY_API_KEY .env dosyasinda tanimli degil.")
+# Dokümandan teyit edilecek parametre değerleri:
+MODEL_TR = "multilang"   # multilanguage model
+MODEL_EN = "lite"        # Lite model
+INPUT_XLSX  = "YZ_Tespit_Korpus_v8.xlsx"
+OUTPUT_XLSX = "YZ_Tespit_Korpus_v8_ORIG.xlsx"
+BEKLE = 1.0
+TARIH = time.strftime("%d.%m.%Y")
+
+def metinleri_cek(wb):
+    t={}
+    for i,row in enumerate(wb["G1_Insan_Korpus"].iter_rows(min_row=2, values_only=True),1):
+        t[f"G1_Insan_{i:02d}"]=row[8]
+    for i,row in enumerate(wb["G2_YZ_Korpus"].iter_rows(min_row=2, values_only=True),1):
+        t[f"G2_YZ_{i:02d}"]=row[4]
+    for i,row in enumerate(wb["G3_Insanlastirilmis"].iter_rows(min_row=2, values_only=True),1):
+        t[f"G3_Insanlastirilmis_{i:02d}"]=row[2]
+    return t
+
+def skor(text, model, deneme=4):
+    for i in range(deneme):
+        r=requests.post("https://api.originality.ai/api/v2/scan/ai",
+            headers={"X-OAI-API-KEY":API_KEY,"Content-Type":"application/json"},
+            json={"content":text,"aiModelVersion":model}, timeout=90)
+        if r.status_code in (429,503):
+            time.sleep(15*(i+1)); continue
+        r.raise_for_status()
+        d=r.json()
+        # v2 yanıtında score.ai (0-1) beklenir; alan adını ilk testte teyit et
+        return round(float(d["score"]["ai"])*100,2), d.get("model_used", model)
+    raise RuntimeError("limit/hata: yanıt alınamadı")
+
+def main():
+    wb=load_workbook(INPUT_XLSX)
+    texts=metinleri_cek(wb)
+    ws=wb["Olcum_Sablonu"]
+    hdr={c.value:i for i,c in enumerate(ws[1])}
+    ci,cd,ca=hdr["metin_id"],hdr["dil"],hdr["arac"]
+    cs,ck,ct,cn=hdr["yz_olasilik_%"],hdr["karar_YZ_Insan"],hdr["tarih"],hdr["not"]
+    n=h=0
+    for row in ws.iter_rows(min_row=2):
+        if row[ca].value!="Originality_ai": continue
+        if row[cs].value not in (None,""): continue
+        mid=row[ci].value; dil=row[cd].value
+        model=MODEL_TR if dil=="TUR" else MODEL_EN
+        text=texts.get(mid)
+        if not text: row[cn].value="METIN YOK"; continue
+        try:
+            s,mkul=skor(text, model)
+            row[cs].value=s
+            row[ck].value="YZ" if s>50 else "Insan"
+            row[ct].value=TARIH
+            row[cn].value=f"model={mkul} (satıcı önerisi: TR->multilang, EN->Lite)"
+            n+=1; print(f"[{n}] {mid} ({dil}/{model}) = {s}%")
+        except Exception as e:
+            h+=1; row[cn].value=f"HATA: {str(e)[:100]}"; print("  HATA",mid,e)
+        time.sleep(BEKLE)
+        if n and n%10==0: wb.save(OUTPUT_XLSX)
+    wb.save(OUTPUT_XLSX)
+    print(f"BİTTİ. İşlenen:{n} Hata:{h} -> {OUTPUT_XLSX}")
+
+if __name__=="__main__":
+    main()

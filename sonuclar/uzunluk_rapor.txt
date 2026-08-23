@@ -1,0 +1,112 @@
+﻿
+==================================================================================
+1. ETKI BUYUKLUGU — anlamlilik ile buyuklugun ayristirilmasi
+==================================================================================
+  n cift            : 100
+  Ortalama fark     : -11.8100 sozcuk (SS = 5.8425)
+  Eslesmis t(99)   : -20.2138, p = 6.453e-37 (p < .001)
+  Cohen's dz        : -2.0214
+  G3/G2 oran ort    : 0.9380 (SS = 0.0279)
+
+  Not: dz buyuk cikabilir; cunku farkin DEGISKENLIGI cok kucuktur
+  (protokol her cifti dar bir banda zorluyor). Buyuk dz burada
+  'buyuk fark' degil, 'cok tutarli kucuk fark' anlamina gelir.
+
+==================================================================================
+2. ESDEGERLIK SINAMASI (TOST) — H0: fark +/-%10 bandinin DISINDA
+   Olcek: G3/G2 uzunluk orani. Esdegerlik siniri: [0.90, 1.10]
+==================================================================================
+  Ortalama oran      : 0.9380   (%90 GA: [0.9334, 0.9426])
+  H01 (mu <= 0.90)   : t(99) = 13.6028, p = 1.083e-24 (p < .001)
+  H02 (mu >= 1.10)   : t(99) = -57.9856, p = 1.583e-78 (p < .001)
+  TOST kararı        : p = 1.083e-24 (p < .001) -> ESDEGERLIK KANITLANDI
+
+  Yorum: klasik t-testi 'fark sifir degil' der; TOST 'fark, onceden
+  ilan edilen onemlilik esiginden kucuk' der. Ikisi celiskili degildir.
+
+==================================================================================
+3. BANT-ICI ALT ORNEKLEM — banda uymayan 5 cift atildi
+   (kalan 95 cift uzerinde McNemar yinelendi)
+==================================================================================
+   Atilan cift no'lari: [1, 32, 50, 62, 92]
+
+arac             kapsam      n    R_G2    R_G3   b   c      p_exact
+GPTZero          TUM       100  1.0000  0.9700   3   0     0.250000
+GPTZero          BANT       95  1.0000  0.9684   3   0     0.250000
+
+ZeroGPT          TUM       100  0.9800  0.7300  25   0     0.000000
+ZeroGPT          BANT       95  0.9789  0.7368  23   0     0.000000
+
+Copyleaks        TUM        32  1.0000  0.7500   8   0     0.007812
+Copyleaks        BANT       30  1.0000  0.7667   7   0     0.015625
+
+Sapling          TUM       100  0.9300  0.9900   1   7     0.070312
+Sapling          BANT       95  0.9368  0.9895   1   6     0.125000
+
+Originality_ai   TUM       100  1.0000  0.9900   1   0     1.000000
+Originality_ai   BANT       95  1.0000  0.9895   1   0     1.000000
+
+Pangram          TUM       100  1.0000  1.0000   0   0     1.000000
+Pangram          BANT       95  1.0000  1.0000   0   0     1.000000
+
+
+==================================================================================
+4. G3 ICINDE SKOR ile KELIME SAYISI ILISKISI (Spearman rho)
+   'Metin kisaldigi icin kacirildi' savi dogruysa rho POZITIF ve
+   anlamli olmalidir (uzun metin -> yuksek YZ skoru).
+==================================================================================
+arac             dil     n      rho            p
+GPTZero          TUM   100   0.4207     0.000013
+GPTZero          TUR    50  -0.0206     0.887237
+GPTZero          ENG    50   0.1339     0.353878
+
+ZeroGPT          TUM   100  -0.3874     0.000068
+ZeroGPT          TUR    50  -0.1606     0.265196
+ZeroGPT          ENG    50  -0.2441     0.087582
+
+Copyleaks        TUM    32   0.0391     0.831564
+Copyleaks        TUR    16   0.4082     0.116452
+Copyleaks        ENG    16  -0.3794     0.147266
+
+Sapling          TUM   100   0.1923     0.055229
+Sapling          TUR    50  -0.6901     0.000000
+Sapling          ENG    50   0.0125     0.931300
+
+Originality_ai   TUM   100   0.3457     0.000427
+Originality_ai   TUR    50  -0.3337     0.017857
+Originality_ai   ENG    50  -0.1249     0.387340
+
+Pangram          TUM   100        — (skor sabit)
+Pangram          TUR    50        — (skor sabit)
+Pangram          ENG    50        — (skor sabit)
+
+
+==================================================================================
+5. KACIRILAN CIFTLER (b hucresi) vs DIGERLERI — uzunluk farki
+   Uzunluk karistiricisi gecerliyse, G3'te kacirilan ciftlerin
+   kisalma miktari digerlerinden BUYUK olmalidir (Mann-Whitney).
+==================================================================================
+
+  GPTZero: kacirilan n=3, diger n=97
+    kacirilanlarda G3/G2 oran ort = 0.9579
+    digerlerinde   G3/G2 oran ort = 0.9374
+    Mann-Whitney U = 195.0, p = 0.322101   fark yok
+
+  ZeroGPT: kacirilan n=25, diger n=75
+    kacirilanlarda G3/G2 oran ort = 0.9369
+    digerlerinde   G3/G2 oran ort = 0.9384
+    Mann-Whitney U = 873.0, p = 0.610413   fark yok
+
+  Copyleaks: kacirilan n=8, diger n=24
+    kacirilanlarda G3/G2 oran ort = 0.9289
+    digerlerinde   G3/G2 oran ort = 0.9346
+    Mann-Whitney U = 76.0, p = 0.396001   fark yok
+
+  Sapling: b hucresi n=1 — sinama icin yetersiz.
+
+  Originality_ai: b hucresi n=1 — sinama icin yetersiz.
+
+  Pangram: b hucresi n=0 — sinama icin yetersiz.
+
+
+JSON ozet yazildi: C:\Users\cihanemres\Desktop\icits\sonuclar\uzunluk_kontrol_istatistik.json
