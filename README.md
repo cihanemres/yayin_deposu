@@ -45,7 +45,7 @@ analiz_uretici_model.py    Üretici model (Claude/Gemini) kırılımı
 
 veri/
   HAM_OLCUMLER.csv         1624 ölçüm (metin × araç), düz tablo
-  ham_api_yanitlari.jsonl  Ham API yanıtlarının tamamı
+  ham_api_yanitlari.jsonl  Ham API yanıtları (girdi metni içeren alanlar çıkarılmış)
   G2_G3_METINLER.csv       G2 ve G3 metinlerinin tam gövdeleri (200 metin)
   G1_KAYNAKCA_DOI.csv      G1'in 100 kaydı: dergi, başlık, DOI (gövde yok)
 
@@ -61,10 +61,33 @@ G1 özetlerinin telif hakları kaynak dergilerdedir; bu nedenle metin gövdeleri
 tamamı DOI üzerinden izlenebilir kılınmıştır (100/100 DOI, 38 dergi).
 
 Bu, analizlerin yeniden üretilebilirliğini **kısıtlamaz**: her (metin, araç)
-ölçümünün normalize skoru ve ham API yanıtı bu depodadır, dolayısıyla tüm
+ölçümünün normalize skoru ve ham API yanıtlarının metin içermeyen alanları bu depodadır, dolayısıyla tüm
 istatistiksel çözümlemeler metinlere hiç erişmeden yinelenebilir. Metin
 gövdesine yalnızca *yeni bir ölçüm* yapmak isteyen (örneğin başka bir dedektör
 eklemek isteyen) bir araştırmacının ihtiyacı olur.
+
+## Veri
+
+`veri/ham_api_yanitlari.jsonl`, API ham yanıtlarının girdi metni içeren
+alanları çıkarılmış hâlidir. G1 insan metinleri telif nedeniyle
+paylaşılmamıştır; kaynakları `veri/G1_KAYNAKCA_DOI.csv` dosyasındaki DOI'lerle
+erişilebilir. Analiz için birincil kaynak `veri/HAM_OLCUMLER.csv`'dir. Bir
+metin–araç çifti için birden çok kayıt varsa, hatasız son kayıt kullanılmıştır.
+Copyleaks'in 27 ölçümü protokol öncesinde elle kaydedilmiştir ve JSONL'de
+karşılığı yoktur (CSV'de 'Excel(tarihsiz)' kökenli). Originality.ai İngilizce
+metinlerde aiModelVersion=1 istenmiş, yanıtta 5 dönmüştür.
+
+## Ekler
+
+| Dosya | İçerik |
+|---|---|
+| `ekler/EK_A_URETIM_ISTEMLERI.md` | G2 üretim istemleri |
+| `ekler/EK_B_INSANLASTIRMA_YONERGESI.md` | G3 insanlaştırma protokolü |
+| `ekler/EK_B1_HUMANIZER_SKILL.md` | `humanizer` skill tam metni (v2.8.2) |
+| `ekler/EK_C_SDT_TABLOSU.md` | d′, c, c′, β, AUC (araç × dil) |
+| `ekler/EK_D_ESIK_DUYARLILIK.md` | Dokuz eşikte FPR ve TPR |
+| `ekler/EK_E_UZUNLUK_KONTROLU.md` | TOST, bant içi McNemar, Spearman, Mann–Whitney |
+| `ekler/EK_F_URETICI_MODEL.md` | Üretici model (Claude/Gemini) kırılımı |
 
 ## Analizleri yeniden üretme
 
@@ -96,8 +119,8 @@ python run.py --olc --arac <ARAÇ> --grup G3_Insanlastirilmis
 
 **Uyarı:** Ticari dedektörlerin modelleri ve eşikleri zamanla değişir. Yeni
 ölçümler, bu depodaki 2026 tarihli değerlerle birebir örtüşmeyebilir; makalede
-raporlanan bulguların denetimi için `veri/ham_api_yanitlari.jsonl` esas
-alınmalıdır.
+raporlanan bulguların skor denetimi için `veri/HAM_OLCUMLER.csv`, yanıt yapısı
+ve model sürümü denetimi için `veri/ham_api_yanitlari.jsonl` esas alınmalıdır.
 
 ## Lisans
 
