@@ -12,7 +12,7 @@ değer, buradaki betiklerin ham veri üzerinde çalıştırılmasıyla yeniden
 ## Çalışmanın özeti
 
 Altı ticari YZ tespit aracı (GPTZero, ZeroGPT, Copyleaks, Sapling,
-Originality.ai, Pangram), 300 akademik özetten oluşan dengeli bir korpus
+Originality.ai, Pangram), 300 akademik özetten oluşan dengeli bir derlem
 üzerinde, tek bir ölçüm protokolüyle ve resmî API'leri üzerinden sınanmıştır.
 
 | Grup | Gerçek etiket | n | İçerik |
