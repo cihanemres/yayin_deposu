@@ -9,8 +9,8 @@ Girdi : sonuclar/yontem_istatistik.json   (analiz_yontem.py çıktısı)
           her araç için TUR ve ENG alt örneklemi).
 Şekil 2 : G2 (saf YZ) -> G3 (insanlaştırılmış) duyarlılık düşüşü; eşleşmiş
           çiftler. Veri: rapor["mcnemar"]["<araç>|TUM"].
-          Copyleaks kutusu, G3 ölçümleri v9 öncesi (bayat) olduğu için
-          GEÇERSİZ olarak işaretlenir.
+          Copyleaks, G3 ölçümleri v9 öncesi (bayat) olduğu için şekilden
+          çıkarılır; şekil altına not düşülür.
 
 Çalıştırma:  python sekil_uret.py
 Bağımlılık:  matplotlib >= 3.8
@@ -79,40 +79,37 @@ def sekil_1(rapor: dict) -> None:
 
 def sekil_2(rapor: dict) -> None:
     mc = rapor["mcnemar"]
+    araclar = [a for a in ARACLAR if a not in GECERSIZ_G2G3]
     fig, ax = plt.subplots(figsize=(8.6, 4.0))
-    for i, a in enumerate(ARACLAR):
+    for i, a in enumerate(araclar):
         v = mc.get(f"{a}|TUM")
         if not v:
             continue
-        gecersiz = a in GECERSIZ_G2G3
         r2, r3 = v["recall_G2"], v["recall_G3"]
-        renk = "#9e9e9e" if gecersiz else ("#c0392b" if r3 < r2 else "#2c6fbb")
-        cizgi = ":" if gecersiz else "-"
-        ax.plot([i - .16, i + .16], [r2, r3], cizgi, color=renk, linewidth=1.6, zorder=2)
-        ax.plot(i - .16, r2, "o", color="#9e9e9e" if gecersiz else "#333333",
-                markersize=6, zorder=3)
+        renk = "#c0392b" if r3 < r2 else "#2c6fbb"
+        ax.plot([i - .16, i + .16], [r2, r3], "-", color=renk, linewidth=1.6, zorder=2)
+        ax.plot(i - .16, r2, "o", color="#333333", markersize=6, zorder=3)
         ax.plot(i + .16, r3, "s", color=renk, markersize=6, zorder=3)
         alt, ust = v["fark_GA95"]
         not_ = (f"Δ = {r2 - r3:+.2f}\n"
                 f"[{alt:+.2f}, {ust:+.2f}]\n"
                 f"b = {v['b']}, c = {v['c']}\n"
                 f"n = {v['n']}")
-        if gecersiz:
-            not_ += "\nGEÇERSİZ: bayat G3"
         # ust ust binmemesi icin tek/cift sutunlarda kaydirmali yerlesim
         y0 = min(r2, r3) - (.05 if i % 2 == 0 else .17)
-        ax.annotate(not_, xy=(i, y0), ha="center", va="top", fontsize=6.6,
-                    color="#9e9e9e" if gecersiz else "black")
+        ax.annotate(not_, xy=(i, y0), ha="center", va="top", fontsize=6.6)
     ax.plot([], [], "o", color="#333333", label="G2 (saf YZ)")
     ax.plot([], [], "s", color="#c0392b", label="G3 (insanlaştırılmış)")
-    ax.set_xticks(range(len(ARACLAR)))
-    ax.set_xticklabels([ad(a) for a in ARACLAR], rotation=12, ha="right")
+    ax.set_xticks(range(len(araclar)))
+    ax.set_xticklabels([ad(a) for a in araclar], rotation=12, ha="right")
     ax.set_ylabel("Duyarlılık (recall)")
     ax.set_ylim(.35, 1.06)
     ax.set_title("Şekil 2. G2 → G3 duyarlılık düşüşü (eşleşmiş çiftler, tüm korpus)\n"
                  "Δ: eşleşmiş oran farkı, köşeli parantez: %95 GA; b/c: uyumsuz hücreler",
                  loc="left", fontsize=9.5)
     ax.legend(frameon=False, ncol=2, loc="lower left")
+    fig.text(0.01, -0.06, "Not. Copyleaks G3 ölçümleri raporlanmamıştır.",
+             ha="left", va="top", fontsize=8, style="italic")
     kaydet(fig, "sekil_2_g2_g3")
 
 
